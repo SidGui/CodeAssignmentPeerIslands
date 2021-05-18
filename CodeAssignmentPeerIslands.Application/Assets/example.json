@@ -1,0 +1,207 @@
+{
+  "queries": [
+    {
+      "name": "Person",
+      "columns": [
+        {
+          "tableOrigin": "Person",
+          "alias": "PersonId",
+          "fieldName": "ID"
+        },
+        {
+          "tableOrigin": "Person",
+          "fieldName": "Name",
+          "alias": "",
+        },
+        {
+          "tableOrigin": "Person",
+          "fieldName": "Profession",
+          "alias": "",
+        },
+        {
+          "tableOrigin": "Users",
+          "fieldName": "Username",
+          "alias": ""
+        }
+      ],
+      "where": [
+        {
+          "logicalOperator": "AND",
+          "columns": [
+            {
+              "operator": "IN",
+              "fieldName": "Name",
+              "fieldValue": "Guilherme",
+              "tableOrigin": "Person",
+            }
+          ]
+        },
+        {
+          "logicalOperator": "",
+          "columns": [
+            {
+              "operator": "Equal",
+              "fieldName": "Profession",
+              "fieldValue": "Software Engineer",
+              "tableOrigin": "Person"
+            }
+          ]
+        }
+      ],
+      "joins": [
+        {
+          "type": "INNER",
+          "logicalOperator": [],
+          "leftTableName": "Users",
+          "rightTableColumns": [
+            {
+              "tableOrigin": "Person",
+              "fieldName": "Id",
+              "operator": "Equal",
+              "fieldValue": ""
+            }
+          ],
+          "leftTableColumns": [
+            {
+              "tableOrigin": "Users",
+              "logicalOperator": "",
+              "fieldName": "PersonId",
+              "fieldValue": ""
+            }
+          ]
+        }
+      ],
+    },
+    {
+      "name": "Users",
+      "columns": [
+        {
+          "tableOrigin": "Users",
+          "alias": "",
+          "fieldName": "Username"
+        },
+        {
+          "tableOrigin": "Log",
+          "alias": "CreatedAt",
+          "fieldName": "CreatedAt"
+        }
+      ],
+      "joins": [
+        {
+          "type": "LEFT",
+          "logicalOperator": [ "" ],
+          "leftTableName": "Log",
+          "rightTableColumns": [
+            {
+              "tableOrigin": "Users",
+              "fieldName": "Id",
+              "operator": "Equal"
+            }
+          ],
+          "leftTableColumns": [
+            {
+              "tableOrigin": "Log",
+              "fieldName": "UserId"
+            }
+          ]
+        }
+      ],
+      "subQueries": [
+        {
+          "fieldName": "PersonName",
+          "tables": [
+            {
+              "name": "Person",
+              "alias": "",
+              "columns": [
+                {
+                  "tableOrigin": "Person",
+                  "fieldName": "Name",
+                  "alias": ""
+                },
+              ],
+              "where": [
+                {
+                  "logicalOperator": "",
+                  "columns": [
+                    {
+                      "tableOrigin": "Person",
+                      "operator": "equal",
+                      "fieldName": "ID",
+                      "fieldValue": "Users.PersonID",
+                      "isTableFieldValue": true,
+                    }
+                  ]
+                },
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "columns": [
+        {
+          "tableOrigin": "Users",
+          "fieldName": "Id",
+          "alias": ""
+        },
+        {
+          "tableOrigin": "Users",
+          "fieldName": "PersonId",
+          "alias": "THIS IS A TEST!!!!"
+        }
+      ],
+      "where": [
+        {
+          "logicalOperator": "OR",
+          "columns": [
+            {
+              "tableOrigin": "Users",
+              "operator": "like",
+              "fieldName": "Username",
+              "fieldValue": "Henr",
+              "startValue": "%"
+            }
+          ]
+        },
+        {
+          "logicalOperator": "",
+          "columns": [
+            {
+              "tableOrigin": "Users",
+              "operator": "notlike",
+              "fieldName": "Username",
+              "fieldValue": "roque",
+              "endValue": "%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Log",
+      "columns": [],
+    },
+    {
+      "name": "Log",
+      "columns": [],
+      "where": [
+        {
+          "logicalOperator": "",
+          "columns": [
+            {
+              "tableOrigin": "Log",
+              "operator": "between",
+              "fieldName": "CreatedAt",
+              "fieldValue": "",
+              "startValue": "2021-05-16",
+              "endValue": "2021-05-17 23:59:59", 
+            }
+          ]
+        },
+     ],
+    }
+  ]
+}
