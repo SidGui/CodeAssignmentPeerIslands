@@ -1,0 +1,8 @@
+./CodeAssignmentPeerIslands.Application/bin/*
+./CodeAssignmentPeerIslands.Application/obj/*
+./CodeAssignmentPeerIslands.Domain/bin/*
+./CodeAssignmentPeerIslands.Domain/obj/*
+./CodeAssignmentPeerIslands.Infra/bin/*
+./CodeAssignmentPeerIslands.Infra/obj/*
+./CodeAssignmentPeerIslands.Service/bin/*
+./CodeAssignmentPeerIslands.Service/obj/*
