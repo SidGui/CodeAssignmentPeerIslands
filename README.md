@@ -1,5 +1,8 @@
 # CodeAssignmentPeerIslands
 
+## Version
+.NET Core 3.1
+
 ## Problem 1: 
 Create a SQL query supporting various operators ( IN, LIKE, =, <=, >= , <>, BETWEEN etc)
 
