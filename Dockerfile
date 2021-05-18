@@ -10,6 +10,8 @@ COPY ["CodeAssignmentPeerIslands.Service/CodeAssignmentPeerIslands.Service.cspro
 RUN dotnet restore "CodeAssignmentPeerIslands.Application/CodeAssignmentPeerIslands.Application.csproj"
 COPY . .
 WORKDIR "/src/CodeAssignmentPeerIslands.Application"
+
+
 RUN dotnet build "CodeAssignmentPeerIslands.Application.csproj" -c Release -o /app/build
 
 FROM build AS publish
@@ -17,5 +19,7 @@ RUN dotnet publish "CodeAssignmentPeerIslands.Application.csproj" -c Release -o 
 
 FROM base AS final
 WORKDIR /app
+
+COPY CodeAssignmentPeerIslands.Application/Assets/example.json /app/Assets/example.json
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "CodeAssignmentPeerIslands.Application.dll"]
