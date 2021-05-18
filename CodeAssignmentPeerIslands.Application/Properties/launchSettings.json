@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CodeAssignmentPeerIslands.Application": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
